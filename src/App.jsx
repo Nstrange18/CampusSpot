@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import RootLayout from "./Layout/RootLayout";
 import CampusSearchResults from "./pages/CampusSearchResults";
+import CampusSpotListingForm from "./pages/CampusSpotListingForm";
 
 
 const App = () => {
