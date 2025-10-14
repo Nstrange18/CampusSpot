@@ -8,15 +8,16 @@ import {
 import RootLayout from "./Layout/RootLayout";
 import CampusSearchResults from "./pages/CampusSearchResults";
 import CampusSignInUser from "./components/Registration/CampusSignInUser";
-import CampusSignInLandlord from "./components/Registration/CampusSignInLandlord"
-import CampusLoginPage from "./components/Registration/CapmusLoginPage"
+import CampusSignInLandlord from "./components/Registration/CampusSignInLandlord";
+import CampusLoginPage from "./components/Registration/CapmusLoginPage";
+import CampusLandingPage from "./pages/CampusLandingPage";
 
 
 const App = () => {
   const router = createBrowserRouter(
       createRoutesFromElements(
         <Route path="/" element={<RootLayout />}>
-          {/* <Route index element={<CampusLoginPage />} /> */}
+          <Route index element={<CampusLandingPage />} />
           <Route path="about" element={<h1>About</h1>} />
           <Route path="contact" element={<h1>Contact</h1>} />
         </Route>
