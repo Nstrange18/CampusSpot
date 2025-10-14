@@ -1,19 +1,29 @@
 import React from 'react';
 import "../../styles/CampusLandingPage.css";
 import SearchBar from '../components/LandingPage/SearchBar';
+import { SignIn, SignUp, SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
 
 const CampusLandingPage = () => {
   return (
     <div>
-      <header className='landingPageHeader'>
-        <div className="logoDiv">
-          <img src="/logo.png" alt="app logo" />
-          <h3>CampusSpot</h3>
-        </div>
-        <div className="headerChildDiv">
-          <button className="login">Log in</button>
-        </div>
-      </header>
+     <header className="landingPageHeader">
+  <div className="logoDiv">
+    <img src="/logo.png" alt="app logo" />
+    <h3>CampusSpot</h3>
+  </div>
+
+  <div className="headerChildDiv">
+    <SignedOut>
+  <a href="/sign-in">
+    <button className="login">Log in</button>
+  </a>
+</SignedOut>
+
+<SignedIn>
+  <UserButton afterSignOutUrl="/" />
+</SignedIn>
+  </div>
+</header>
       <div className="landing">
         <div className="backdrop"></div>
         <div className="landing-intro">
