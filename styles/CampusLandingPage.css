@@ -1,0 +1,427 @@
+/* ==== Base & tokens ==== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --primary: #1881ec;
+  --primary-600: #3296fa;
+  --ink: #070c1b;
+  --ink-200: #555;
+  /* body text */
+  --bg: #f6f8f8;
+  --muted: #cfd9df;
+  --surface: #fff;
+  --brand-chip: #d4e4f5;
+  --card: #f7f3d4;
+  --footer: #dddcd1;
+  --radius: 8px;
+  --shadow: 0 6px 24px rgba(0, 0, 0, .08);
+}
+
+/* ==== Header ==== */
+.landingPageHeader {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  background: rgba(246, 248, 248, .95);
+  backdrop-filter: saturate(1.1) blur(6px);
+  border-bottom: 1px solid rgba(0, 0, 0, .04);
+}
+
+.logoDiv {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoDiv img {
+  width: 4rem;
+  height: 3rem;
+  object-fit: contain
+}
+
+.logoDiv h3 {
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 700
+}
+
+.headerChildDiv {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.headerChildDiv button {
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: .18s ease-in-out;
+}
+
+.login {
+  background: #e4edf3;
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.login:hover {
+  background: #d6e6ef
+}
+
+/* ==== Hero ==== */
+.landing {
+  min-height: 72vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 16px;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, .25), rgba(0, 0, 0, .45)),
+    url("/analog-landscape-city-with-buildings2.jpg") center/cover no-repeat;
+}
+
+.landing-intro h1 {
+  color: #fff;
+  font-weight: 900;
+  width: 100%;
+  font-size: 3.5rem;
+  /* line-height: 1.1 */
+}
+
+.landing-intro p {
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.4;
+  opacity: .95
+}
+
+
+/* search pill */
+.uniSearchDiv {
+  margin: 20px auto 0;
+  width: clamp(260px, 60vw, 600px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  padding: 1rem 2rem;
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  input {
+    border: none;
+    width: 200%;
+  }
+  
+  input::placeholder {
+    color: #7b8a97;
+    font-size: 1rem;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  img {
+
+    width: 22px;
+    height: 22px;
+    opacity: .8;
+  }
+
+  button {
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: var(--primary-600);
+  }  
+}
+
+
+/* .uniSearchDiv { */
+/* position: relative;
+  z-index: 1;
+  margin: 20px auto 0;
+  width: min(820px, 92%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+  padding: 6px 6px 6px 48px;
+  /* left room for icon */
+/* } */
+/* 
+.uniSearchDiv input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 14px 10px;
+}
+
+.uniSearchDiv input::placeholder {
+  color: #7b8a97
+}
+
+.uniSearchDiv button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .18s ease-in-out;
+}
+
+.uniSearchDiv button:hover {
+  background: var(--primary-600)
+}
+
+.uniSearchDiv img {
+  position: absolute;
+  left: 16px;
+  width: 22px;
+  height: 22px;
+  opacity: .8;
+} */
+
+/* ==== Trusted logos ==== */
+.trustedSch {
+  background: #faf9f2;
+  padding: 56px 16px 72px;
+}
+
+.trustedSch h2 {
+  text-align: center;
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+  margin: 0 0 28px;
+  color: var(--ink);
+}
+
+.schLogoDiv {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 6vw, 100px);
+  align-items: center;
+  justify-items: center;
+}
+
+.schLogoDiv img {
+  width: 45%;
+  height: auto;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, .06));
+}
+
+/* ==== How it works ==== */
+.how-it-works {
+  padding: 64px 16px
+}
+
+.explain {
+  text-align: center;
+  color: var(--primary);
+  margin: 0 0 8px;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.how-it-works h2 {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 26ch;
+  color: var(--ink);
+  line-height: 1.15;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-weight: 800;
+}
+
+.what-we-do {
+  margin: 14px auto 0;
+  text-align: center;
+  max-width: 70ch;
+  color: var(--ink-200);
+  font-size: 1.06rem;
+  letter-spacing: .2px;
+}
+
+/* cards */
+.card-ParentDiv {
+  width: min(1150px, 92%);
+  margin: 56px auto 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.img-Bg {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--brand-chip);
+  display: grid;
+  place-items: center;
+  margin-bottom: 12px;
+}
+
+.card img {
+  width: 26px;
+  height: 26px
+}
+
+.card h3 {
+  margin: 6px 0 6px;
+  color: var(--ink);
+  font-size: 1.1rem
+}
+
+.card p {
+  margin: 0;
+  color: #554f4f
+}
+
+/* ==== Footer ==== */
+footer {
+  background: var(--footer);
+  padding: 50px 16px;
+  text-align: center;
+}
+
+.policies {
+  margin: 0 0 10px;
+  font-size: 1.05rem
+}
+
+.policies a.regulation {
+  color: #0c4074;
+  text-decoration: none;
+  transition: .18s ease-in-out;
+}
+
+.policies a.regulation:hover {
+  color: var(--primary)
+}
+
+.Copyright {
+  margin: 8px 0 0;
+  font-size: 1.05rem
+}
+
+/* ==== Responsive ==== */
+
+/* <= 1024px */
+@media (max-width:1024px) {
+  .schLogoDiv {
+    gap: 60px
+  }
+}
+
+/* <= 900px */
+@media (max-width:900px) {
+  .schLogoDiv {
+    grid-template-columns: repeat(4, 1fr)
+  }
+}
+
+/* <= 768px */
+@media (max-width:768px) {
+  .landing {
+    min-height: 78vh
+  }
+
+  .uniSearchDiv {
+    border-radius: 12px;
+    padding: 6px;
+    gap: 8px;
+  }
+
+  .uniSearchDiv img {
+    position: static;
+    margin-left: 10px
+  }
+
+  .uniSearchDiv {
+    padding-left: 10px
+  }
+
+  .uniSearchDiv button {
+    width: 110px
+  }
+
+  .card-ParentDiv {
+    grid-template-columns: 1fr;
+    gap: 16px
+  }
+
+  .schLogoDiv {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px
+  }
+}
+
+/* <= 480px */
+@media (max-width:480px) {
+  .logoDiv img {
+    width: 28px;
+    height: 28px
+  }
+
+  .logoDiv h3 {
+    font-size: 1.05rem
+  }
+
+  .headerChildDiv button {
+    padding: 8px 10px;
+    font-size: .9rem
+  }
+
+  .uniSearchDiv {
+    width: 92%
+  }
+
+  .schLogoDiv img {
+    width: 72%
+  }
+}
+
+/* <= 360px fine-tune */
+@media (max-width:360px) {
+  .headerChildDiv {
+    gap: 8px
+  }
+
+  .uniSearchDiv button {
+    flex: 0 0 96px;
+    padding: 10px 12px
+  }
+}
