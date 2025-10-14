@@ -1,12 +1,4 @@
 /* ========= RESET ========= */
-* {
-  box-sizing: border-box;
-}
-
-html, body, #root {
-  height: 100%;
-}
-
 :root {
   --bg: #f9fafb;
   --text: #111827;
@@ -24,7 +16,7 @@ html, body, #root {
 /* ========= PAGE CONTAINER ========= */
 .main-container {
   background: red; /* unchanged */
-  margin-top: -51rem; /* kept for same layout */
+  margin-top: 8rem;
   width: 100vw;
   height: 100vh;
   display: flex;
