@@ -1,39 +1,47 @@
-import React from 'react';
+import React from "react";
 import "../../styles/CampusLandingPage.css";
-import SearchBar from '../components/LandingPage/SearchBar';
-import { SignIn, SignUp, SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
+import SearchBar from "../components/LandingPage/SearchBar";
+import {
+  SignIn,
+  SignUp,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/clerk-react";
 
 const CampusLandingPage = () => {
   return (
     <div>
-     <header className="landingPageHeader">
-  <div className="logoDiv">
-    <img src="/logo.png" alt="app logo" />
-    <h3>CampusSpot</h3>
-  </div>
+      <header className="landingPageHeader">
+        <div className="logoDiv">
+          <img src="/logo.png" alt="app logo" />
+          <h3>CampusSpot</h3>
+        </div>
 
-  <div className="headerChildDiv">
-    <SignedOut>
-  <a href="/sign-in">
-    <button className="login">Log in</button>
-  </a>
-</SignedOut>
+        <div className="headerChildDiv">
+          <SignedOut>
+            <a href="/sign-in">
+              <button className="login">Log in</button>
+            </a>
+          </SignedOut>
 
-<SignedIn>
-  <UserButton afterSignOutUrl="/" />
-</SignedIn>
-  </div>
-</header>
+          <SignedIn>
+            <UserButton afterSignOutUrl="/" />
+          </SignedIn>
+        </div>
+      </header>
       <div className="landing">
         <div className="backdrop"></div>
         <div className="landing-intro">
-          <h1>Find your perfect <br /> student housing</h1>
+          <h1>
+            Find your perfect <br /> student housing
+          </h1>
           <p>
             Discover a wide range of housing options near your university, from
             dorms to <br /> apartments, all in one place.
           </p>
         </div>
-        
+
         <SearchBar />
       </div>
       <div className="trustedSch">
@@ -85,7 +93,14 @@ const CampusLandingPage = () => {
       </div>
       <footer>
         <p className="policies">
-          Read our <a href="#" className="regulation">Terms</a> &amp; <a href="#" className="regulation">Policy</a>
+          Read our {" "}
+          <a href="#" className="regulation">
+            Terms
+          </a>{" "}
+          &amp;{" "}
+          <a href="#" className="regulation">
+            Policy
+          </a>
         </p>
         <p className="Copyright">
           Copyright &copy; 2025 CampusSpot. All rights reserved.
