@@ -340,7 +340,9 @@ span{
     justify-content: flex-start;
     gap: 8px;
   }
-  .he
+  .headings{
+    display: none;
+  }
 }
 
 /* Very small screens */
