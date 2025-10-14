@@ -1,0 +1,384 @@
+body {
+  /* width: 100%; */
+  background-color: rgb(244, 244, 255);
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  margin: 0;
+  overflow-x: hidden;
+  /* border: 2px solid red */
+  /* position: relative; */
+}
+.propertys img{
+    width: 100px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  background-color: rgba(244, 244, 255, 0.925);
+  padding: 5px 35px;
+  box-shadow: 0px 1px 2px rgb(200, 200, 253);
+  font-size: 15px;
+  position:fixed;
+  top: 0px;
+  z-index:100;
+}
+header img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+header h1 {
+  font-size: 25px;
+}
+header div{
+    display: flex;
+    align-items: center;
+}
+header .avatar img{
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    height: 50px;
+    cursor: pointer;
+}
+nav ul{
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    margin-right: 100px;
+    border: none; 
+}
+nav li:hover{
+    color: rgb(0, 124, 201);
+    cursor: pointer;
+}
+.container1{
+  padding: 5px;
+  margin-top:90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+  /* border: 2px solid red; */
+}
+.welcomeboard{
+    display: flex;
+    /* gap: 740px; */
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    padding: 10px 45px;
+    margin-bottom: 20px;
+    /* border: 2px solid red; */
+}
+.welcomeboard p{
+    color: rgb(88, 88, 88);
+    margin-top: 10px;
+    
+}
+.addPropertyBtn{
+    background-color: rgb(0, 124, 201);
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    border: none;
+    padding: 0 25px;
+    height: 35px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.addPropertyBtn2{
+    background-color: rgb(0, 124, 201);
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    border: none;
+    padding: 0 25px;
+    height: 35px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+.listings{
+    width: 94vw;
+    border: 1px solid rgb(200, 200, 253);
+    border-radius: 10px;
+    padding: 30px 30px;
+    /* display: flex;
+    flex-direction: column;
+    gap: 20px; */
+}
+ul{
+    list-style: none;
+    display: flex;
+    align-items:center ;
+    justify-content: space-between;
+    padding: 18px;
+    border-bottom: 1px solid rgb(200, 200, 253) ;
+}
+.propertys{
+    display: flex;
+    align-content: center;
+    gap: 10px;
+    justify-content: center;
+}
+span{
+    color:rgb(244, 244, 255);
+}
+.last{
+    border-bottom: none;
+}
+#active{
+  color: green;
+  background-color: rgba(4, 235, 4, 0.26);
+  padding: 0px 10px;
+  border-radius: 50px;
+}
+#pending{
+  color: goldenrod;
+  background-color: rgba(255, 217, 0, 0.301);
+  padding: 0px 6px;
+  border-radius: 50px;
+
+}
+#rented{
+    color: rgb(180, 0, 30);
+  background-color: rgba(255, 2, 44, 0.13);
+  padding: 0px 6px;
+  border-radius: 50px;
+
+}
+.plus{
+    font-size: 25px;
+    font-weight: 500; 
+    
+}
+.a #pending{
+    display: none;
+}
+.a #rented{
+    display: none;
+}
+.p #active{
+    display: none;
+}
+.p #rented{
+    display: none;
+}
+.last #pending{
+    display: none;
+}
+.last #active{
+    display: none;
+}
+.dbtn {
+  display: flex;
+  gap: 10px;
+}
+.dbtn button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.dbtn button:hover {
+    transform: scale(1.1);
+}
+.dbtn img {
+  width: 15px;
+}
+/* === RESPONSIVE ADJUSTMENTS === */
+
+/* Tablets and medium screens */
+@media (max-width: 992px) {
+  header {
+    padding: 10px 20px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  header div:first-child img {
+    width: 50px;
+    height: 50px;
+  }
+
+  header h1 {
+    font-size: 22px;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  .welcomeboard {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .listings {
+    padding: 15px;
+    overflow-x: auto;
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 14px;
+    padding: 10px;
+    min-width: 600px; /* keeps table-like alignment */
+  }
+
+  .propertys img {
+    width: 80px;
+    height: 45px;
+  }
+
+  span {
+    display: none; /* remove the filler dots */
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+  header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 15px;
+  }
+.plus{
+    font-size: 25px;
+    font-weight: 500;
+    display: flex;
+    
+}
+  header div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  .avatar img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .container1 {
+    margin-top: 120px;
+    padding: 10px;
+  }
+
+  .welcomeboard {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+.addPropertyBtn {
+    font-size: 12px;
+    padding: 5px 20px;
+    height: 30px;
+    display: none;
+  }
+  .addPropertyBtn2 {
+    font-size: 12px;
+    padding: 5px 20px;
+    height: 30px;
+    display: flex;
+    margin-left: auto;
+    margin-top: 20px;
+  }
+
+  .listings {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  ul {
+    flex-direction: row; /* stays row like table */
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+    font-size: 13px;
+    min-width: 600px; /* ensures alignment consistency */
+  }
+
+  .propertys {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .propertys img {
+    width: 70px;
+    height: 45px;
+    border-radius: 5px;
+  }
+
+  .dbtn {
+    justify-content: flex-start;
+    gap: 8px;
+  }
+  .he
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 18px;
+  }
+.plus{
+    font-size: 25px;
+    font-weight: 500; 
+    display: flex;
+}
+  nav ul {
+    display: none;
+  }
+
+  ul {
+    font-size: 12px;
+    gap: 8px;
+  }
+
+  .propertys img {
+    width: 60px;
+    height: 40px;
+  }
+
+  .addPropertyBtn {
+    font-size: 12px;
+    padding: 5px 20px;
+    height: 30px;
+    display: none;
+  }
+  .addPropertyBtn2 {
+    font-size: 12px;
+    padding: 5px 20px;
+    height: 30px;
+    display: flex;
+    margin-left: auto;
+    margin-top: 20px;
+  }
+}
