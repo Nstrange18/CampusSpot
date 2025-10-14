@@ -36,7 +36,13 @@ const FiltersSearchResult = () => {
       <span className="distance-range">
         <p className="titles">Distance from Campus</p>
 
-        <input type="range" id="price-range" max="30" min="1" value="5" />
+        <input 
+          type="range" 
+          id="price-range" 
+          max="30" 
+          min="1" 
+          // value="5" 
+        />
 
         <div className="distance-index">Up to 5 miles</div>
       </span>
