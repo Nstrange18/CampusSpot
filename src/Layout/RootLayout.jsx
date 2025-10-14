@@ -4,8 +4,7 @@ export default function RootLayout() {
   return (
     <div>
       <header>
-        <h1>Campus Rentals</h1>
-      </header>
+       </header>
       <main>
         <Outlet />
       </main>
