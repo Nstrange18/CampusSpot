@@ -13,6 +13,7 @@ import CampusSignInLandlord from "./components/Registration/CampusSignInLandlord
 import CampusLoginPage from "./components/Registration/CapmusLoginPage";
 import CampusLandingPage from "./pages/CampusLandingPage.jsx";
 import { createContext, useState } from "react";
+import { SignIn, SignUp } from "@clerk/clerk-react";
 import CampusDashboard from "./pages/CampusDashboard.jsx";
 
 // Exporting the useContext
@@ -30,7 +31,7 @@ const App = () => {
     createRoutesFromElements(
       <Route path="/" element={<RootLayout />}>
         <Route 
-          index element={<CampusLandingPage />} 
+          index element={<CampusDashboard />} 
         />
   
         <Route
@@ -43,14 +44,13 @@ const App = () => {
           path="/dashboard"
           element={<CampusDashboard listings={listings} />}
         />
-        <Route path="contact" element={<h1>Contact</h1>} />
 
         {/* Clerk authentication routes */}
         <Route path="/sign-in" element={<SignIn routing="path" path="/sign-in" />} />
         <Route path="/sign-up" element={<SignUp routing="path" path="/sign-up" />} />
 
         {/* Protected route (for logged-in landlords) */}
-        <Route path="/dashboard" element={<Dashboard />} />
+        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
       </Route>
     )
   );
