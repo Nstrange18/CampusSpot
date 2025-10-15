@@ -23,8 +23,12 @@ const EachListings = ({listings}) => {
               <p id="pending">Pending</p>
               <p id="rented">Rented</p>
             </li>
+            <li>{listing.university}</li>
+             
+            <li>{listing.roomType}</li>
             <li>${listing.price}</li>
-            <li>10</li>
+            {/* <li>10</li> */}
+            
             <li className="dbtn">
               <button>
                 <img src="edit 2.png" alt="" />
