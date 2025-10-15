@@ -1,4 +1,8 @@
-const EachListings = ({listings}) => {
+import { useContext } from "react";
+import { UserContext } from "../../App";
+
+const EachListings = () => {
+  const { listings, handleRemoveListing } = useContext(UserContext);
   return (
     <div>
       {listings.length === 0 ? (
@@ -7,33 +11,40 @@ const EachListings = ({listings}) => {
         listings.map((listing, index) => (
           <ul className="a" key={index}>
             <li className="propertys">
-              {listing.photo?.preview && (
+              {/* {listing.photo?.preview && (
                 <img
-                  src={listing.photo.preview}
+                  // src={listing.photo.preview}
+                  src="/Esut-logo.jpeg"
                   alt="Uploaded Room"
                   className="propertyImage"
                 />
-              )}
-              <div>
-                <h3 id="propertyAddresses">{listing.address}</h3>
-              </div>
+              )} */}
+              <img
+                src="/Screenshot 2025-10-06 095023.png"
+                alt="Uploaded Room"
+                className="propertyImage"
+              />
             </li>
             <li>
-              <p id="active">Active</p>
-              <p id="pending">Pending</p>
-              <p id="rented">Rented</p>
+              <div>
+                <h3 id="propertyAddresses">{listing.propertyAddress}</h3>
+              </div>
             </li>
+
+            <li>
+              {listing.status === "active" && <p id="active">Active</p>}
+              {listing.status === "pending" && <p id="pending">Pending</p>}
+              {listing.status === "rented" && <p id="rented">Rented</p>}
+            </li>
+            
             <li>{listing.university}</li>
-             
             <li>{listing.roomType}</li>
             <li>${listing.price}</li>
-            {/* <li>10</li> */}
-            
             <li className="dbtn">
               <button>
                 <img src="edit 2.png" alt="" />
               </button>
-              <button>
+              <button onClick={handleRemoveListing}>
                 <img src="delete.png" alt="" />
               </button>
             </li>

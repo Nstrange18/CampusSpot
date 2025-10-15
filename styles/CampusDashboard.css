@@ -1,24 +1,26 @@
+/* Variables */
+:root {
+  --background-color: rgb(244, 244, 255);
+  --primary-blue: rgb(0, 124, 201);
+  --primary-text: black;
+  --secondary-text: rgb(88, 88, 88);
+  --border-light: rgb(200, 200, 253);
+  --green-active: rgba(4, 235, 4, 0.26);
+  --yellow-pending: rgba(255, 217, 0, 0.301);
+  --red-rented: rgba(255, 2, 44, 0.13);
+  --font-poppins: 'Poppins', sans-serif;
+}
+
 body {
-  /* width: 100%; */
-  background-color: rgb(244, 244, 255);
-  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  font-family: var(--font-poppins);
   font-size: 15px;
   margin: 0;
   overflow-x: hidden;
-  /* border: 2px solid red */
-  /* position: relative; */
 }
 
 .propertys img {
-  width: 100px;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.propertyImage {
-  width: 100px;
-  height: 50px;
+  width: 8rem;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -30,10 +32,10 @@ header {
   width: 100vw;
   background-color: rgba(244, 244, 255, 0.925);
   padding: 5px 35px;
-  box-shadow: 0px 1px 2px rgb(200, 200, 253);
+  box-shadow: 0px 1px 2px var(--border-light);
   font-size: 15px;
   position: fixed;
-  top: 0px;
+  top: 0;
   z-index: 100;
 }
 
@@ -70,28 +72,24 @@ header .avatar img {
   width: 100vw;
   overflow-x: hidden;
   position: relative;
-  /* border: 2px solid red; */
 }
 
 .welcomeboard {
   display: flex;
-  /* gap: 740px; */
   justify-content: space-between;
   align-items: center;
   width: 100vw;
   padding: 10px 45px;
   margin-bottom: 20px;
-  /* border: 2px solid red; */
 }
 
 .welcomeboard p {
-  color: rgb(88, 88, 88);
+  color: var(--secondary-text);
   margin-top: 10px;
-
 }
 
 .addPropertyBtn {
-  background-color: rgb(0, 124, 201);
+  background-color: var(--primary-blue);
   color: white;
   display: flex;
   align-items: center;
@@ -104,9 +102,9 @@ header .avatar img {
 }
 
 .addPropertyBtn2 {
-  background-color: rgb(0, 124, 201);
+  background-color: var(--primary-blue);
   color: white;
-  display: flex;
+  display: none;
   align-items: center;
   gap: 7px;
   border: none;
@@ -114,45 +112,43 @@ header .avatar img {
   height: 35px;
   border-radius: 5px;
   cursor: pointer;
-  display: none;
 }
 
 .listings {
-  width: 94vw;
-  border: 1px solid rgb(200, 200, 253);
+  width: 90vw;
+  border: 1px solid var(--border-light);
   border-radius: 10px;
   padding: 20px 30px;
+}
 
-  /* gap: 2rem; */
-  /* justify-content: space-between; */
-  /* display: flex;
-    flex-direction: column;
-    gap: 20px;*/
+.listings .headings {
+  padding: 1rem 1.3rem;
+  border-bottom: 1px solid var(--border-light);
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
 }
 
 ul {
   list-style: none;
-  /* display: flex;
-  align-items: center;
-  justify-content: space-between; */
   padding: 18px;
-  border-bottom: 1px solid rgb(200, 200, 253);
   display: grid;
   align-items: center;
-  justify-content: space-between;
-  grid-template-columns: repeat(6, 1fr);
-  /* gap: 200px; */
+  justify-content: center;
+  grid-template-columns: repeat(7, 1fr);
 }
 
 .propertys {
   display: flex;
-  align-content: center;
+  align-items: center;
   gap: 10px;
-  justify-content: center;
+}
+
+#propertyAddresses {
+  width: 30%;
 }
 
 span {
-  color: rgb(244, 244, 255);
+  color: var(--background-color);
 }
 
 .last {
@@ -161,60 +157,38 @@ span {
 
 #active {
   color: green;
-  background-color: rgba(4, 235, 4, 0.26);
-  /* padding: 0px 10px; */
+  background-color: var(--green-active);
+  width: 35%;
+  padding: 4px 10px;
   border-radius: 50px;
 }
 
 #pending {
   color: goldenrod;
-  background-color: rgba(255, 217, 0, 0.301);
+  background-color: var(--yellow-pending);
   padding: 0px 6px;
   border-radius: 50px;
-
 }
 
 #rented {
   color: rgb(180, 0, 30);
-  background-color: rgba(255, 2, 44, 0.13);
+  background-color: var(--red-rented);
   padding: 0px 6px;
   border-radius: 50px;
-
 }
 
 .plus {
   font-size: 25px;
   font-weight: 500;
-
 }
 
-.a #pending {
-  display: none;
-}
-
-.a #rented {
-  display: none;
-}
-
-.p #active {
-  display: none;
-}
-
-.p #rented {
-  display: none;
-}
-
-.last #pending {
-  display: none;
-}
-
-.last #active {
+.hidden {
   display: none;
 }
 
 .dbtn {
   display: flex;
-  gap: 10px;
+  gap: 26px;
 }
 
 .dbtn button {
@@ -229,12 +203,11 @@ span {
 }
 
 .dbtn img {
-  width: 15px;
+  width: 20px;
 }
 
 /* === RESPONSIVE ADJUSTMENTS === */
 
-/* Tablets and medium screens */
 @media (max-width: 992px) {
   header {
     padding: 10px 20px;
@@ -275,21 +248,14 @@ span {
     font-size: 14px;
     padding: 10px;
     min-width: 600px;
-    /* keeps table-like alignment */
   }
 
   .propertys img {
     width: 80px;
     height: 45px;
   }
-
-  span {
-    display: none;
-    /* remove the filler dots */
-  }
 }
 
-/* Mobile screens */
 @media (max-width: 768px) {
   header {
     flex-direction: row;
@@ -303,7 +269,6 @@ span {
     font-size: 25px;
     font-weight: 500;
     display: flex;
-
   }
 
   header div {
@@ -356,14 +321,12 @@ span {
 
   ul {
     flex-direction: row;
-    /* stays row like table */
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
     gap: 10px;
     font-size: 13px;
     min-width: 600px;
-    /* ensures alignment consistency */
   }
 
   .propertys {
@@ -382,11 +345,8 @@ span {
     justify-content: flex-start;
     gap: 8px;
   }
-
-
 }
 
-/* Very small screens */
 @media (max-width: 480px) {
   header h1 {
     font-size: 18px;

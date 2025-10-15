@@ -25,22 +25,21 @@ const App = () => {
     setListings((prev) => [...prev, newListing]);
   };
 
+  const handleRemoveListing = (id) => {
+    setListings(listings.filter((listing) => listing.id !== id));
+  };
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<RootLayout />}>
-        <Route 
-          index element={<CampusDashboard />} 
-        />
-  
+        <Route index element={<CampusDashboard />} />
+
         <Route
           path="/listingForm"
           element={<CampusSpotListingForm onAddListing={handleAddListing} />}
         />
 
-        <Route
-          path="/dashboard"
-          element={<CampusDashboard listings={listings} />}
-        />
+        <Route path="/dashboard" element={<CampusDashboard />} />
 
         {/* Clerk Authentication Routes */}
         <Route path="/sign-in" element={<AuthWrapper type="sign-in" />} />
@@ -53,7 +52,7 @@ const App = () => {
   );
   return (
     <div>
-      <UserContext.Provider value={{ listings, setListings }}>
+      <UserContext.Provider value={{ listings, setListings, handleRemoveListing }}>
         <RouterProvider router={router} />
       </UserContext.Provider>
     </div>

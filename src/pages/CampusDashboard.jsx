@@ -3,12 +3,11 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "../../styles/CampusDashboard.css";
 import EachListings from "../components/DashboardListings/EachListings";
-import { useContext } from "react";
-import { UserContext } from "../App";
+// import { useContext } from "react";
+// import { UserContext } from "../App";
 
 const CampusDashboard = () => {
   const navigate = useNavigate();
-  const { listings } = useContext(UserContext);
 
   return (
     <>
@@ -18,20 +17,10 @@ const CampusDashboard = () => {
             <img src="logo (1).png" alt="logo" />
             <h1>CampusSpot</h1>
           </div>
-    
-          <div className='avatar'>
-            <img id='dashboardAvatar' src="IMG-20250427-WA0143.jpg" />
-          </div>
-          {/* <nav>
-            <ul>
-              <li>Home</li>
-              <li>Dashboard</li>
-              <li>Profile</li>
-            </ul>
-          </nav>
+
           <div className="avatar">
             <img id="dashboardAvatar" src="IMG-20250427-WA0143.jpg" />
-          </div> */}
+          </div>
         </header>
         <div className="welcomeboard">
           <div>
@@ -39,7 +28,10 @@ const CampusDashboard = () => {
             <p>Manage your property listings and monitor their performance.</p>
           </div>
 
-          <button className="addPropertyBtn" onClick={() => navigate('/listingForm')}>
+          <button
+            className="addPropertyBtn"
+            onClick={() => navigate("/listingForm")}
+          >
             <span className="plus">+</span>
             Add Property
           </button>
@@ -47,32 +39,21 @@ const CampusDashboard = () => {
 
         <div className="listings">
           <ul className="headings">
-            <li>
-             Property
-            </li>
-            <li>
-              Status
-            </li>
+            <li>Room Image</li>
+            <li>Property Address</li>
+            <li>Status</li>
             <li>University</li>
             <li>Room Type</li>
-            <li>
-              Price
-            </li>
-
+            <li>Price</li>
             <li></li>
-            
-            {/* <li>
-              <span>.......</span>Views
-            </li> */}
           </ul>
 
-          <EachListings listings={listings} />
-          
+          <EachListings />
         </div>
 
         <button
           className="addPropertyBtn2"
-          onClick={() => navigate('/listingForm')}
+          onClick={() => navigate("/listingForm")}
         >
           <span className="plus">+</span>
           Add Property
