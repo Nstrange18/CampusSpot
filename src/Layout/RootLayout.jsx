@@ -1,11 +1,9 @@
-import { Outlet } from "react-router-dom"
+import { Outlet } from "react-router-dom";
 
-const RootLayout = () => {
+export default function RootLayout() {
   return (
-    <div>
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <Outlet />
     </div>
-  )
+  );
 }
-
-export default RootLayout

@@ -1,22 +1,20 @@
-import React from 'react'
-
 const CampusSpotNavbar = () => {
   return (
     <header>
         <nav className="nav-bar">
           <div className="nav-bar-logo-links">
             <div className="logo">
-              <img src="/campusspot_cap_clean.png" alt="" />
+              <img src="/logo.png" alt="" />
               CampusSpot
             </div>
 
-            <div className="navlinks">
+            {/* <div className="navlinks">
               <a href="#">Home</a>
               <a href="#">List your place</a>
               <a href="#">Saved</a>
               <a href="#">Trips</a>
               <a href="#">Messages</a>
-            </div>
+            </div> */}
           </div>
 
           <div className="search-profile-picture-container">
