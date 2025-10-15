@@ -10,13 +10,7 @@ const CampusDashboard = () => {
               <img src="logo (1).png" alt="logo" />
               <h1>CampusSpot</h1>
           </div>
-          <nav>
-            <ul>
-                <li>Home</li>
-                <li>Dashboard</li>
-                <li>Profile</li>
-            </ul>
-          </nav>
+    
           <div className='avatar'>
             <img id='dashboardAvatar' src="IMG-20250427-WA0143.jpg" />
           </div>

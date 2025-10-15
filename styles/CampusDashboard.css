@@ -46,17 +46,7 @@ header .avatar img{
     height: 50px;
     cursor: pointer;
 }
-nav ul{
-    list-style: none;
-    display: flex;
-    gap: 50px;
-    margin-right: 100px;
-    border: none; 
-}
-nav li:hover{
-    color: rgb(0, 124, 201);
-    cursor: pointer;
-}
+
 .container1{
   padding: 5px;
   margin-top:90px;
