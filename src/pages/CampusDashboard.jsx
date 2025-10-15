@@ -18,7 +18,11 @@ const CampusDashboard = () => {
             <img src="logo (1).png" alt="logo" />
             <h1>CampusSpot</h1>
           </div>
-          <nav>
+    
+          <div className='avatar'>
+            <img id='dashboardAvatar' src="IMG-20250427-WA0143.jpg" />
+          </div>
+          {/* <nav>
             <ul>
               <li>Home</li>
               <li>Dashboard</li>
@@ -27,7 +31,7 @@ const CampusDashboard = () => {
           </nav>
           <div className="avatar">
             <img id="dashboardAvatar" src="IMG-20250427-WA0143.jpg" />
-          </div>
+          </div> */}
         </header>
         <div className="welcomeboard">
           <div>
@@ -44,18 +48,22 @@ const CampusDashboard = () => {
         <div className="listings">
           <ul className="headings">
             <li>
-              <span>..</span>Property
+             Property
             </li>
             <li>
-              <span>.....................................</span>Status
+              Status
             </li>
+            <li>University</li>
+            <li>Room Type</li>
             <li>
-              <span>.........</span>Price
+              Price
             </li>
+
+            <li></li>
+            
             {/* <li>
               <span>.......</span>Views
             </li> */}
-            <li>Applications</li>
           </ul>
 
           <EachListings listings={listings} />
