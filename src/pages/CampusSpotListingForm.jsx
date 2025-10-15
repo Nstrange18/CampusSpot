@@ -14,7 +14,9 @@ const CampusSpotListingForm = ({ onAddListing }) => {
 
   const handleSubmit = (e) => {
     const isRawFile = formPhotoData instanceof File;
+
     e.preventDefault();
+
     const listingData = {
       university,
       formPhotoData: isRawFile ? {
@@ -27,6 +29,7 @@ const CampusSpotListingForm = ({ onAddListing }) => {
       amenities,
       description
     };
+    
     onAddListing(listingData);
     navigate("/dashboard");
   };
