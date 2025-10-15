@@ -2,8 +2,9 @@ import React from 'react';
 // import '../../styles/CampusPropertyDetails.css';
 import ImageSlider from '../components/PropertyDetails/ImageSlider';
 // import Modal from '../components/PropertyDetails/modalPopUp';
-import { useState } from 'react';
-const CampusPropertDetails = () => {
+// import { useState } from 'react';
+
+const CampusPropertyDetails = () => {
   // const [openModal, setOpenModal] = useState(false);
   const slides = [
     { url: 'huga.jpg', title: 'First Image' },
@@ -91,4 +92,4 @@ const CampusPropertDetails = () => {
   );
 };
 
-export default CampusPropertDetails;
+export default CampusPropertyDetails;
