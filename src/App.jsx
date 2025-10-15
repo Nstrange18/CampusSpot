@@ -9,9 +9,6 @@ import RootLayout from "./Layout/RootLayout";
 import AuthWrapper from "./components/Auth/AuthWrapper.jsx";
 import CampusSearchResults from "./pages/CampusSearchResults";
 import CampusSpotListingForm from "./pages/CampusSpotListingForm";
-import CampusSignInUser from "./components/Registration/CampusSignInUser";
-import CampusSignInLandlord from "./components/Registration/CampusSignInLandlord";
-import CampusLoginPage from "./components/Registration/CapmusLoginPage";
 import CampusLandingPage from "./pages/CampusLandingPage.jsx";
 import { createContext, useState } from "react";
 import { SignIn, SignUp } from "@clerk/clerk-react";
@@ -32,11 +29,10 @@ const App = () => {
     createRoutesFromElements(
       <Route path="/" element={<RootLayout />}>
         <Route 
-          index element={<CampusLandingPage />} 
+          index element={<CampusDashboard />} 
         />
   
         <Route
-          index
           path="/listingForm"
           element={<CampusSpotListingForm onAddListing={handleAddListing} />}
         />
@@ -57,7 +53,7 @@ const App = () => {
   );
   return (
     <div>
-      <UserContext.Provider>
+      <UserContext.Provider value={{ listings, setListings }}>
         <RouterProvider router={router} />
       </UserContext.Provider>
     </div>
