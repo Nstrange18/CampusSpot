@@ -10,13 +10,14 @@ import CampusSearchResults from "./pages/CampusSearchResults";
 import CampusSignInUser from "./components/Registration/CampusSignInUser";
 import CampusSignInLandlord from "./components/Registration/CampusSignInLandlord"
 import CampusLoginPage from "./components/Registration/CapmusLoginPage"
+import CampusLandlordProfilePage from "./pages/CampusLandlordProfilePage.jsx"
 
 
 const App = () => {
   const router = createBrowserRouter(
       createRoutesFromElements(
         <Route path="/" element={<RootLayout />}>
-          <Route index element={<CampusSignInLandlord />} />
+          <Route index element={<CampusLandlordProfilePage />} />
           <Route path="about" element={<h1>About</h1>} />
           <Route path="contact" element={<h1>Contact</h1>} />
         </Route>
