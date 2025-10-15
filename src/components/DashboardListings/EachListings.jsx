@@ -11,7 +11,7 @@ const EachListings = ({listings}) => {
                 <img
                   src={listing.photo.preview}
                   alt="Uploaded Room"
-                  className="preview-img"
+                  className="propertyImage"
                 />
               )}
               <div>
