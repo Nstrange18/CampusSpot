@@ -8,23 +8,18 @@
   --green-active: rgba(4, 235, 4, 0.26);
   --yellow-pending: rgba(255, 217, 0, 0.301);
   --red-rented: rgba(255, 2, 44, 0.13);
-  --font-poppins: 'Poppins', sans-serif;
+  --font-inter: 'Inter', sans-serif;
 }
 
 body {
   background-color: var(--background-color);
-  font-family: var(--font-poppins);
+  font-family: var(--font-inter);
   font-size: 15px;
   margin: 0;
   overflow-x: hidden;
 }
 
-.propertys img {
-  width: 8rem;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
+/* Header */
 header {
   display: flex;
   justify-content: space-between;
@@ -62,6 +57,7 @@ header .avatar img {
   cursor: pointer;
 }
 
+/* Main Dashboard Container */
 .container1 {
   padding: 5px;
   margin-top: 90px;
@@ -74,6 +70,7 @@ header .avatar img {
   position: relative;
 }
 
+/* Welcome Board */
 .welcomeboard {
   display: flex;
   justify-content: space-between;
@@ -88,6 +85,7 @@ header .avatar img {
   margin-top: 10px;
 }
 
+/* Buttons */
 .addPropertyBtn {
   background-color: var(--primary-blue);
   color: white;
@@ -101,10 +99,16 @@ header .avatar img {
   cursor: pointer;
 }
 
+.addPropertyBtn .plus {
+  font-size: 25px;
+  font-weight: 500;
+  color: white;
+}
+
 .addPropertyBtn2 {
   background-color: var(--primary-blue);
   color: white;
-  display: none;
+  display: none; /* Hidden by default */
   align-items: center;
   gap: 7px;
   border: none;
@@ -114,76 +118,68 @@ header .avatar img {
   cursor: pointer;
 }
 
+/* Listings Table */
 .listings {
   width: 90vw;
   border: 1px solid var(--border-light);
   border-radius: 10px;
   padding: 20px 30px;
+  box-sizing: border-box;
 }
 
 .listings .headings {
+  list-style: none;
   padding: 1rem 1.3rem;
   border-bottom: 1px solid var(--border-light);
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  /* Adjusting the grid columns */
+  grid-template-columns: 1.4fr 2.3fr 1.2fr 1.5fr 1.5fr 1fr 0.5fr;
+  font-weight: 600;
 }
 
-ul {
+/* For each individual listing row */
+.a, .p, .last {
   list-style: none;
-  padding: 18px;
   display: grid;
   align-items: center;
   justify-content: center;
-  grid-template-columns: repeat(7, 1fr);
+  /* Adjusting the grid columns to match the header */
+  grid-template-columns: 1.2fr 2.5fr 1.2fr 1.5fr 1.5fr 1fr 0.5fr;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border-light);
 }
-
-.propertys {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-#propertyAddresses {
-  width: 30%;
-}
-
-span {
-  color: var(--background-color);
-}
-
 .last {
   border-bottom: none;
+}
+
+.propertys img {
+  width: 8rem;
+  height: 4.4rem;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Status Badges */
+#active, #pending, #rented {
+  text-align: center;
+  padding: 4px 10px; /* Use padding instead of fixed width */
+  border-radius: 50px;
+  display: inline-block; /* Makes it wrap content */
 }
 
 #active {
   color: green;
   background-color: var(--green-active);
-  width: 35%;
-  padding: 4px 10px;
-  border-radius: 50px;
 }
 
 #pending {
   color: goldenrod;
   background-color: var(--yellow-pending);
-  padding: 0px 6px;
-  border-radius: 50px;
 }
 
 #rented {
   color: rgb(180, 0, 30);
   background-color: var(--red-rented);
-  padding: 0px 6px;
-  border-radius: 50px;
-}
-
-.plus {
-  font-size: 25px;
-  font-weight: 500;
-}
-
-.hidden {
-  display: none;
 }
 
 .dbtn {
@@ -206,7 +202,17 @@ span {
   width: 20px;
 }
 
+.no-listings {
+  text-align: center;
+  color: var(--secondary-text);
+  font-size: 18px;
+  margin-top: 20px;
+
+}
+
 /* === RESPONSIVE ADJUSTMENTS === */
+
+/* The following media queries are updated to use your class names and will work as expected. */
 
 @media (max-width: 992px) {
   header {
@@ -240,7 +246,7 @@ span {
     overflow-x: auto;
   }
 
-  ul {
+  .listings ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -253,6 +259,10 @@ span {
   .propertys img {
     width: 80px;
     height: 45px;
+  }
+
+  span {
+    display: none;
   }
 }
 
@@ -319,7 +329,7 @@ span {
     overflow-x: auto;
   }
 
-  ul {
+  .listings ul {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -362,7 +372,7 @@ span {
     display: none;
   }
 
-  ul {
+  .listings ul {
     font-size: 12px;
     gap: 8px;
   }

@@ -7,7 +7,7 @@ const CampusSpotListingForm = ({ onAddListing }) => {
   const [university, setUniversity] = useState("");
   const [propertyAddress, setPropertyAddress] = useState("");
   // const [isActive, setIsActive] = useState(true);
-  // const [status, setStatus] = useState();
+  const [status, setStatus] = useState();
   const [roomType, setRoomType] = useState("");
   const [price, setPrice] = useState("");
   const [formPhotoData, setFormPhotoData] = useState([]);
@@ -21,17 +21,20 @@ const CampusSpotListingForm = ({ onAddListing }) => {
 
     const listingData = {
       university,
-      formPhotoData: isRawFile ? {
-        document: formPhotoData,
-        preview: URL.createObjectURL(formPhotoData)
-      } : null,
+      formPhotoData: isRawFile
+        ? {
+            document: formPhotoData,
+            preview: URL.createObjectURL(formPhotoData),
+          }
+        : null,
       propertyAddress,
       roomType,
       price,
       amenities,
-      description
+      status,
+      description,
     };
-    
+
     onAddListing(listingData);
     navigate("/dashboard");
   };
@@ -40,13 +43,11 @@ const CampusSpotListingForm = ({ onAddListing }) => {
     const { value, checked } = e.target;
 
     if (checked) {
-      setAmenities((prev) => (
-        [...prev, value] // adding the checked values
-      ));
+      setAmenities((prev) => [...prev, value]); // adding the checked values
     } else {
-      setAmenities((prev) => (
+      setAmenities((prev) =>
         prev.filter((item) => item !== value) // Removing the checked values
-      ));
+      );
     }
   };
 
@@ -200,7 +201,44 @@ const CampusSpotListingForm = ({ onAddListing }) => {
             </div>
           </div>
           <div className="form-group3">
-            <label className="group3-label" htmlFor="amenities">
+            <label className="group3-label" htmlFor="Status">
+              Status
+            </label>
+
+            <div className="each-amenity">
+              <div className="each-amenity-div">
+                <input
+                  type="radio"
+                  name="Status"
+                  value="Active"
+                  checked={status === "Active"}
+                  onChange={(e) => setStatus(e.target.value)}
+                />
+                <label htmlFor="Active">Active</label>
+              </div>
+              <div className="each-amenity-div">
+                <input
+                  type="radio"
+                  name="Status"
+                  value="Pending"
+                  checked={status === "Pending"}
+                  onChange={(e) => setStatus(e.target.value)}
+                />
+                <label htmlFor="Pending">Pending</label>
+              </div>
+              <div className="each-amenity-div">
+                <input
+                  type="radio"
+                  name="Status"
+                  value="Rented"
+                  checked={status === "Rented"}
+                  onChange={(e) => setStatus(e.target.value)}
+                />
+                <label htmlFor="Rented">Rented</label>
+              </div>
+            </div>
+
+            <label className="group3-label" htmlFor="Amenities">
               Amenities
             </label>
 
@@ -208,38 +246,38 @@ const CampusSpotListingForm = ({ onAddListing }) => {
               <div className="each-amenity-div">
                 <input
                   type="checkbox"
-                  name="wifi"
-                  value="wifi"
+                  name="Wifi"
+                  value="Wifi"
                   onChange={handleAmenitesCheck}
                 />
-                <label htmlFor="wifi">Wifi</label>
+                <label htmlFor="Wifi">Wifi</label>
               </div>
               <div className="each-amenity-div">
                 <input
                   type="checkbox"
-                  name="power"
-                  value="power"
+                  name="Power"
+                  value="Power"
                   onChange={handleAmenitesCheck}
                 />
-                <label htmlFor="power">Power Supply</label>
+                <label htmlFor="Power">Power Supply</label>
               </div>
               <div className="each-amenity-div">
                 <input
                   type="checkbox"
-                  name="water"
-                  value="water"
+                  name="Water"
+                  value="Water"
                   onChange={handleAmenitesCheck}
                 />
-                <label htmlFor="water">Water</label>
+                <label htmlFor="Water">Water</label>
               </div>
               <div className="each-amenity-div">
                 <input
                   type="checkbox"
-                  name="gym"
-                  value="gym"
+                  name="Gym"
+                  value="Gym"
                   onChange={handleAmenitesCheck}
                 />
-                <label htmlFor="gym">Gym</label>
+                <label htmlFor="Gym">Gym</label>
               </div>
               <div className="each-amenity-div">
                 <input

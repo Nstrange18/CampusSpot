@@ -6,24 +6,18 @@ const EachListings = () => {
   return (
     <div>
       {listings.length === 0 ? (
-        <p>No listings available.</p>
+        <p className="no-listings">No listings available.</p>
       ) : (
         listings.map((listing, index) => (
           <ul className="a" key={index}>
             <li className="propertys">
-              {/* {listing.photo?.preview && (
+              {listing.photo?.preview && (
                 <img
-                  // src={listing.photo.preview}
-                  src="/Esut-logo.jpeg"
+                  src={listing.photo.preview}
                   alt="Uploaded Room"
                   className="propertyImage"
                 />
-              )} */}
-              <img
-                src="/Screenshot 2025-10-06 095023.png"
-                alt="Uploaded Room"
-                className="propertyImage"
-              />
+              )}
             </li>
             <li>
               <div>
@@ -32,9 +26,9 @@ const EachListings = () => {
             </li>
 
             <li>
-              {listing.status === "active" && <p id="active">Active</p>}
-              {listing.status === "pending" && <p id="pending">Pending</p>}
-              {listing.status === "rented" && <p id="rented">Rented</p>}
+              {listing.status === "Active" && <p id="active">Active</p>}
+              {listing.status === "Pending" && <p id="pending">Pending</p>}
+              {listing.status === "Rented" && <p id="rented">Rented</p>}
             </li>
             
             <li>{listing.university}</li>
