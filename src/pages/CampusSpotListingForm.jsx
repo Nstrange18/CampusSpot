@@ -6,27 +6,28 @@ const CampusSpotListingForm = ({ onAddListing }) => {
   const navigate = useNavigate();
   const [university, setUniversity] = useState("");
   const [propertyAddress, setPropertyAddress] = useState("");
-  // const [isActive, setIsActive] = useState(true);
   const [status, setStatus] = useState();
   const [roomType, setRoomType] = useState("");
   const [price, setPrice] = useState("");
-  const [formPhotoData, setFormPhotoData] = useState([]);
+  const [photo, setPhoto] = useState(null);
   const [amenities, setAmenities] = useState([]);
   const [description, setDescription] = useState("");
 
-  const handleSubmit = (e) => {
-    const isRawFile = formPhotoData instanceof File;
+  const handleFileChange = (file) => {
+    if (file) {
+      setPhoto({
+        file,
+        preview: URL.createObjectURL(file),
+      });
+    }
+  };
 
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const listingData = {
       university,
-      formPhotoData: isRawFile
-        ? {
-            document: formPhotoData,
-            preview: URL.createObjectURL(formPhotoData),
-          }
-        : null,
+      photo,
       propertyAddress,
       roomType,
       price,
@@ -45,8 +46,8 @@ const CampusSpotListingForm = ({ onAddListing }) => {
     if (checked) {
       setAmenities((prev) => [...prev, value]); // adding the checked values
     } else {
-      setAmenities((prev) =>
-        prev.filter((item) => item !== value) // Removing the checked values
+      setAmenities(
+        (prev) => prev.filter((item) => item !== value) // Removing the checked values
       );
     }
   };
@@ -132,14 +133,7 @@ const CampusSpotListingForm = ({ onAddListing }) => {
                 onDragOver={(e) => e.preventDefault()}
                 onDrop={(e) => {
                   e.preventDefault();
-                  const file = e.dataTransfer.files[0];
-                  if (file) {
-                    setFormPhotoData((prev) => ({
-                      ...prev,
-                      document: file,
-                      preview: URL.createObjectURL(file),
-                    }));
-                  }
+                  handleFileChange(e.dataTransfer.files[0]); // ✅ updated drop handler
                 }}
               >
                 <input
@@ -147,21 +141,12 @@ const CampusSpotListingForm = ({ onAddListing }) => {
                   id="fileUpload"
                   name="document"
                   accept="image/*"
-                  onChange={(e) => {
-                    const file = e.target.files[0];
-                    if (file) {
-                      setFormPhotoData((prev) => ({
-                        ...prev,
-                        document: file,
-                        preview: URL.createObjectURL(file),
-                      }));
-                    }
-                  }}
+                  onChange={(e) => handleFileChange(e.target.files[0])}
                   required
                   hidden
                 />
 
-                {!formPhotoData.preview ? (
+                {!photo?.preview ? (
                   <label htmlFor="fileUpload" className="upload-area">
                     <img
                       src="/public/upload-to-cloud-icon.png"
@@ -177,21 +162,15 @@ const CampusSpotListingForm = ({ onAddListing }) => {
                 ) : (
                   <div className="preview-container">
                     <img
-                      src={formPhotoData.preview}
+                      src={photo.preview}
                       alt="Preview"
                       className="preview-img"
                     />
-                    <p className="file-name">{formPhotoData.document?.name}</p>
+                    <p className="file-name">{photo.document?.name}</p>
                     <button
                       type="button"
                       className="remove-btn"
-                      onClick={() =>
-                        setFormPhotoData((prev) => ({
-                          ...prev,
-                          document: null,
-                          preview: null,
-                        }))
-                      }
+                      onClick={() => setPhoto(null)}
                     >
                       Remove
                     </button>
