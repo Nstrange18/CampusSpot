@@ -13,6 +13,7 @@ import CampusSearchResults from "./pages/CampusSearchResults";
 import CampusSpotListingForm from "./pages/CampusSpotListingForm";
 import { createContext, useState } from "react";
 import CampusDashboard from "./pages/CampusDashboard.jsx";
+import ProfilePage from "./pages/CampusLandlordProfilePage.jsx";
 
 // Exporting the useContext
 // eslint-disable-next-line react-refresh/only-export-components
