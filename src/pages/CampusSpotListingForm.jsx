@@ -15,10 +15,15 @@ const CampusSpotListingForm = ({ onAddListing }) => {
 
   const handleFileChange = (file) => {
     if (file) {
-      setPhoto({
-        file,
-        preview: URL.createObjectURL(file),
-      });
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        // Save Base64 instead of blob
+        setPhoto({
+          file,
+          preview: reader.result, // Base64 string here
+        });
+      };
+      reader.readAsDataURL(file); // Convert to Base64
     }
   };
 

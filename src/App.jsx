@@ -10,7 +10,7 @@ import AuthWrapper from "./components/Auth/AuthWrapper.jsx";
 import CampusSearchResults from "./pages/CampusSearchResults";
 import CampusSpotListingForm from "./pages/CampusSpotListingForm";
 import CampusLandingPage from "./pages/CampusLandingPage.jsx";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { SignIn, SignUp } from "@clerk/clerk-react";
 import CampusDashboard from "./pages/CampusDashboard.jsx";
 
@@ -19,10 +19,19 @@ import CampusDashboard from "./pages/CampusDashboard.jsx";
 export const UserContext = createContext(null);
 
 const App = () => {
-  const [listings, setListings] = useState([]);
+  const [listings, setListings] = useState(() => {
+    const savedListings = localStorage.getItem("campusspot-listings");
+    return savedListings ? JSON.parse(savedListings) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("campusspot-listings", JSON.stringify(listings));
+  }, [listings]);
 
   const handleAddListing = (newListing) => {
-    setListings((prev) => [...prev, newListing]);
+    // Give each listing a unique ID
+    const listingWithId = { ...newListing, id: Date.now() };
+    setListings((prev) => [...prev, listingWithId]);
   };
 
   const handleRemoveListing = (id) => {
@@ -52,7 +61,9 @@ const App = () => {
   );
   return (
     <div>
-      <UserContext.Provider value={{ listings, setListings, handleRemoveListing }}>
+      <UserContext.Provider
+        value={{ listings, setListings, handleRemoveListing }}
+      >
         <RouterProvider router={router} />
       </UserContext.Provider>
     </div>

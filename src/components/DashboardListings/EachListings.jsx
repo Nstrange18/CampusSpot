@@ -38,7 +38,7 @@ const EachListings = () => {
               <button>
                 <img src="edit 2.png" alt="" />
               </button>
-              <button onClick={handleRemoveListing}>
+              <button onClick={() => (handleRemoveListing(listing.id))}>
                 <img src="delete.png" alt="" />
               </button>
             </li>
