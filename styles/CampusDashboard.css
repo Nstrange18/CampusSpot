@@ -1,5 +1,6 @@
 /* Variables */
 :root {
+   --sidebar-width: 250px;
   --background-color: rgb(244, 244, 255);
   --primary-blue: rgb(0, 124, 201);
   --primary-text: black;
@@ -27,9 +28,9 @@ body {
 
 header {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
-  width: 100vw;
+  width: 100%;
   background-color: rgba(244, 244, 255, 0.925);
   padding: 5px 35px;
   box-shadow: 0px 1px 2px var(--border-light);
@@ -54,33 +55,49 @@ header div {
   align-items: center;
 }
 
-header .avatar img {
-  width: 50px;
+.footer-avatar img {
+  width: 65px;
   border-radius: 50%;
   object-fit: cover;
-  height: 50px;
+  height: 65px;
   cursor: pointer;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
 }
 
 .container1 {
-  padding: 5px;
-  margin-top: 90px;
+  /* padding: 5px; */
+  /* margin-top: 66px; */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
-  width: 100vw;
+  width: 100%;
+  max-width: 100%; 
+  box-sizing: border-box; 
+  /* min-width: 100%; */
+  /* height: 100vh; */
   overflow-x: hidden;
+  /* flex-wrap: wrap; */
+  transition: transform 0.4s ease-in-out, max-width 0.4s ease-in-out;
   position: relative;
+}
+
+.container1.shifted {
+  transform: translateX(var(--sidebar-width));
+  max-width: calc(100% - var(--sidebar-width));
 }
 
 .welcomeboard {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   padding: 10px 45px;
   margin-bottom: 20px;
+  margin-top: 90px;
+  box-sizing: border-box;
 }
 
 .welcomeboard p {
@@ -115,7 +132,7 @@ header .avatar img {
 }
 
 .listings {
-  width: 90vw;
+  width: 90%;
   border: 1px solid var(--border-light);
   border-radius: 10px;
   padding: 20px 30px;
@@ -233,6 +250,7 @@ span {
     flex-direction: row;
     align-items: center;
     gap: 10px;
+    margin-top: 100px;
   }
 
   .listings {
@@ -253,6 +271,9 @@ span {
   .propertys img {
     width: 80px;
     height: 45px;
+  }
+    .container1.shifted {
+    transform: translateX(220px);
   }
 }
 
@@ -287,8 +308,9 @@ span {
   }
 
   .container1 {
-    margin-top: 120px;
+    /* margin-top: 120px; */
     padding: 10px;
+    transition: margin-left 0.35s ease-in-out;
   }
 
   .welcomeboard {
@@ -296,6 +318,7 @@ span {
     align-items: center;
     text-align: center;
     gap: 10px;
+    margin-top: 100px;
   }
 
   .addPropertyBtn {
@@ -345,6 +368,9 @@ span {
     justify-content: flex-start;
     gap: 8px;
   }
+    .container1.shifted {
+    margin-left: 10px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -386,5 +412,9 @@ span {
     display: flex;
     margin-left: auto;
     margin-top: 20px;
+  }
+    .container1.shifted {
+    transform: translateX(0); /* don't push content */
+    max-width: 100%; /* fill screen */
   }
 }

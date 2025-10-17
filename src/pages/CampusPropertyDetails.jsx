@@ -1,5 +1,5 @@
 import React from 'react';
-// import '../../styles/CampusPropertyDetails.css';
+import '../../styles/CampusPropertyDetails.css';
 import ImageSlider from '../components/PropertyDetails/ImageSlider';
 // import Modal from '../components/PropertyDetails/modalPopUp';
 // import { useState } from 'react';
