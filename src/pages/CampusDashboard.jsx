@@ -1,13 +1,18 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import "../../styles/CampusDashboard.css";
 import EachListings from "../components/DashboardListings/EachListings";
-// import { useContext } from "react";
-// import { UserContext } from "../App";
+import CampusSpotListingForm from "./CampusSpotListingForm";
+import { UserContext } from "../App";
+import { useContext } from "react";
 
 const CampusDashboard = () => {
-  const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const { handleAddListing } = useContext(UserContext);
+
+  const handleModal = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <>
@@ -28,10 +33,7 @@ const CampusDashboard = () => {
             <p>Manage your property listings and monitor their performance.</p>
           </div>
 
-          <button
-            className="addPropertyBtn"
-            onClick={() => navigate("/listingForm")}
-          >
+          <button className="addPropertyBtn" onClick={handleModal}>
             <span className="plus">+</span>
             Add Property
           </button>
@@ -40,7 +42,9 @@ const CampusDashboard = () => {
         <div className="listings">
           <ul className="headings">
             <li>Room Image</li>
-            <li>Property Address</li>
+            <li>
+              Property <br /> Address
+            </li>
             <li>Status</li>
             <li>University</li>
             <li>Room Type</li>
@@ -51,10 +55,19 @@ const CampusDashboard = () => {
           <EachListings />
         </div>
 
-        <button
-          className="addPropertyBtn2"
-          onClick={() => navigate("/listingForm")}
-        >
+        {isOpen && (
+          <div className="modal-overlay" onClick={handleModal}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <CampusSpotListingForm
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+                onSubmit={handleAddListing}
+              />
+            </div>
+          </div>
+        )}
+
+        <button className="addPropertyBtn2" onClick={handleModal}>
           <span className="plus">+</span>
           Add Property
         </button>

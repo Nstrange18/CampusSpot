@@ -45,7 +45,7 @@ const App = () => {
 
         <Route
           path="/listingForm"
-          element={<CampusSpotListingForm onAddListing={handleAddListing} />}
+          element={<CampusSpotListingForm onSubmit={handleAddListing} />}
         />
 
         <Route path="/dashboard" element={<CampusDashboard />} />
@@ -62,7 +62,7 @@ const App = () => {
   return (
     <div>
       <UserContext.Provider
-        value={{ listings, setListings, handleRemoveListing }}
+        value={{ listings, setListings, handleRemoveListing, handleAddListing }}
       >
         <RouterProvider router={router} />
       </UserContext.Provider>

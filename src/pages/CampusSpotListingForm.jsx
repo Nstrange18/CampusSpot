@@ -1,9 +1,7 @@
 import { useState } from "react";
 import "../../styles/CampusSpotListingForm.css";
-import { useNavigate } from "react-router-dom";
 
-const CampusSpotListingForm = ({ onAddListing }) => {
-  const navigate = useNavigate();
+const CampusSpotListingForm = ({ onSubmit, setIsOpen, isOpen }) => {
   const [university, setUniversity] = useState("");
   const [propertyAddress, setPropertyAddress] = useState("");
   const [status, setStatus] = useState();
@@ -13,6 +11,8 @@ const CampusSpotListingForm = ({ onAddListing }) => {
   const [amenities, setAmenities] = useState([]);
   const [description, setDescription] = useState("");
 
+  
+  // Convert Image file to base64 so that it may persist after reload together with the rest of the listing
   const handleFileChange = (file) => {
     if (file) {
       const reader = new FileReader();
@@ -41,8 +41,8 @@ const CampusSpotListingForm = ({ onAddListing }) => {
       description,
     };
 
-    onAddListing(listingData);
-    navigate("/dashboard");
+    onSubmit(listingData);
+    setIsOpen(!isOpen)
   };
 
   const handleAmenitesCheck = (e) => {
