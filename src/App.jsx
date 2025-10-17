@@ -28,12 +28,6 @@ const App = () => {
     localStorage.setItem("campusspot-listings", JSON.stringify(listings));
   }, [listings]);
 
-  const handleAddListing = (newListing) => {
-    // Give each listing a unique ID
-    const listingWithId = { ...newListing, id: Date.now() };
-    setListings((prev) => [...prev, listingWithId]);
-  };
-
   const handleRemoveListing = (id) => {
     setListings(listings.filter((listing) => listing.id !== id));
   };
@@ -45,7 +39,7 @@ const App = () => {
 
         <Route
           path="/listingForm"
-          element={<CampusSpotListingForm onSubmit={handleAddListing} />}
+          element={<CampusSpotListingForm />}
         />
 
         <Route path="/dashboard" element={<CampusDashboard />} />
@@ -62,7 +56,7 @@ const App = () => {
   return (
     <div>
       <UserContext.Provider
-        value={{ listings, setListings, handleRemoveListing, handleAddListing }}
+        value={{ listings, setListings, handleRemoveListing }}
       >
         <RouterProvider router={router} />
       </UserContext.Provider>

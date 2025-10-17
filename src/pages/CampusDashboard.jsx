@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../../styles/CampusDashboard.css";
 import EachListings from "../components/DashboardListings/EachListings";
 import CampusSpotListingForm from "./CampusSpotListingForm";
@@ -7,10 +7,39 @@ import { useContext } from "react";
 
 const CampusDashboard = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [editingListing, setEditingListing] = useState(null);
 
-  const { handleAddListing } = useContext(UserContext);
+  const { setListings } = useContext(UserContext);
+
+  const handleAddOrUpdateListing = (listingData) => {
+    const newData = {
+      ...listingData,
+      lastUpdated: Date.now(),
+    };
+
+    setListings((prev) => {
+      const exists = prev.some((item) => item.id === newData.id);
+
+      if (exists) {
+        return prev.map((item) =>
+          item.id === newData.id ? { ...item, ...newData } : item
+        );
+      } else {
+        return [...prev, newData];
+      }
+    });
+
+    setEditingListing(null);
+    setIsOpen(false);
+  };
+
+  const handleEditClick = (listing) => {
+    setEditingListing(listing); // set current listing into form
+    setIsOpen(true); // open modal
+  };
 
   const handleModal = () => {
+    setEditingListing(null);
     setIsOpen(!isOpen);
   };
 
@@ -52,7 +81,7 @@ const CampusDashboard = () => {
             <li></li>
           </ul>
 
-          <EachListings />
+          <EachListings onEdit={handleEditClick} />
         </div>
 
         {isOpen && (
@@ -61,7 +90,8 @@ const CampusDashboard = () => {
               <CampusSpotListingForm
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
-                onSubmit={handleAddListing}
+                onSubmit={handleAddOrUpdateListing}
+                editingListing={editingListing}
               />
             </div>
           </div>

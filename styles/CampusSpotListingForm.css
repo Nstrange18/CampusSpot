@@ -197,6 +197,33 @@
   font-style: italic;
 }
 
+.just-edited-badge {
+  display: inline-block;
+  border: none;
+  margin-top: 4px;
+  padding: 2px 6px;
+  background-color: #e6f4ea;
+  color: #2e7d32;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 2px lime;
+    transform: scale(1);
+  }
+  to {
+    text-shadow: 0 0 10px lime;
+    transform: scale(1.05);
+  }
+}
+
+
+
 .remove-btn {
   background-color: var(--danger);
   color: white;

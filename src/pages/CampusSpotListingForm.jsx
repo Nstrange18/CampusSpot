@@ -1,7 +1,11 @@
-import { useState } from "react";
 import "../../styles/CampusSpotListingForm.css";
+import { useState, useEffect } from "react";
 
-const CampusSpotListingForm = ({ onSubmit, setIsOpen, isOpen }) => {
+const CampusSpotListingForm = ({
+  onSubmit,
+  setIsOpen,
+  editingListing,
+}) => {
   const [university, setUniversity] = useState("");
   const [propertyAddress, setPropertyAddress] = useState("");
   const [status, setStatus] = useState();
@@ -11,7 +15,19 @@ const CampusSpotListingForm = ({ onSubmit, setIsOpen, isOpen }) => {
   const [amenities, setAmenities] = useState([]);
   const [description, setDescription] = useState("");
 
-  
+  useEffect(() => {
+    if (editingListing) {
+      setUniversity(editingListing.university || "");
+      setPropertyAddress(editingListing.propertyAddress || "");
+      setStatus(editingListing.status || "");
+      setRoomType(editingListing.roomType || "");
+      setPrice(editingListing.price || "");
+      setPhoto(editingListing.photo || null);
+      setAmenities(editingListing.amenities || []);
+      setDescription(editingListing.description || "");
+    }
+  }, [editingListing]);
+
   // Convert Image file to base64 so that it may persist after reload together with the rest of the listing
   const handleFileChange = (file) => {
     if (file) {
@@ -31,6 +47,7 @@ const CampusSpotListingForm = ({ onSubmit, setIsOpen, isOpen }) => {
     e.preventDefault();
 
     const listingData = {
+      id: editingListing?.id || Date.now(),
       university,
       photo,
       propertyAddress,
@@ -41,8 +58,8 @@ const CampusSpotListingForm = ({ onSubmit, setIsOpen, isOpen }) => {
       description,
     };
 
-    onSubmit(listingData);
-    setIsOpen(!isOpen)
+    onSubmit(listingData); // Works for both Add & Edit
+    setIsOpen(false);
   };
 
   const handleAmenitesCheck = (e) => {
@@ -147,7 +164,7 @@ const CampusSpotListingForm = ({ onSubmit, setIsOpen, isOpen }) => {
                   name="document"
                   accept="image/*"
                   onChange={(e) => handleFileChange(e.target.files[0])}
-                  required
+                  required={!editingListing}
                   hidden
                 />
 
