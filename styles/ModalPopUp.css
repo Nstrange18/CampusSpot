@@ -1,0 +1,87 @@
+.modalContainer{
+    width: 450px;
+    padding: 20px 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+
+}
+.modalBackground {
+  position: fixed;       /* makes it stay over the whole screen */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;         /* use vh, not vw, so it covers vertically */
+  background-color: rgba(240, 240, 240, 0.911); /* grey transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.footer{
+    display: flex;
+    justify-content: end;
+    /* margin-top: 20px; */
+}
+.title{
+    /* text-decoration: underline; */
+    padding: 3px;
+    border-bottom: 2px solid black;
+    width: 200px;
+}
+button{
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    background-color: rgb(0, 99, 180);
+    color: white;
+}
+button:hover{
+    background-color: rgb(255, 255, 165);
+    color: rgb(0, 99, 180);
+}
+textarea{
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    border: none;
+    box-shadow: -2px 2px 0.5px rgb(200, 200, 253);
+}   
+.title span{
+    font-size: 15px;
+    color: gray;
+}
+.subject{
+    padding: 10px 5px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: -2px 2px 0.5px rgb(200, 200, 253);
+}
+.body{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.contacts{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 2px solid rgb(220, 220, 220);
+    padding: 10px;
+}
+.contacts img{
+    width: 25px;
+    height: 25px;
+}
+@media (max-width: 600px) {
+  .modalContainer {
+    width: 90%;
+    padding: 20px;
+  }
+}

@@ -1,0 +1,130 @@
+.Sidebar{
+   top: 0;
+  left: 0;
+  width: 250px;
+   height: 100vh;
+  background-color: rgb(249, 249, 255);
+ transform: translateX(-100%); /* hidden */
+  transition: transform 0.35s ease-in-out;
+  z-index: 10;
+    position: absolute;
+      border-right: 1px solid #e5e7eb;
+      
+}
+.sidebarList{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+   
+}
+.sidebarList .listItem{
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    gap: 15px;
+    padding: 20px 38px;
+    color: #4b5563;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.15s ease-in-out;
+}
+.sidebarList .listItem:hover {
+  background-color: #f3f4f6;
+  border-radius: 8px;
+  color:#2563eb ;
+  border-right: 3px solid #2563eb;
+  font-weight: 600;
+   transition: background 0.5s ease-in-out;
+}
+.sidebarList .listItem .active {
+  background-color: #eff6ff;
+  color: #2563eb;
+  font-weight: 600;
+  border-right: 3px solid #2563eb;
+}
+#dashboard{
+  color: blue;
+}
+/* .sidebarList .listItem  */
+/* .sidebarList li{
+ padding: 10px 24px;
+  color: #4b5563;
+  cursor: pointer;
+
+}
+.sidebarList li:hover {
+  background-color: #f3f4f6;
+}
+.sidebarList li:active {
+  background-color: #eff6ff;
+  color: #2563eb;
+  font-weight: 600;
+  border-right: 3px solid #2563eb;
+} */
+.Sidebar.open {
+   transform: translateX(0); /* visible */
+}
+@media (max-width: 992px) {
+  .Sidebar {
+    width: 400px;
+  }
+
+
+}
+@media (max-width: 768px) {
+  .Sidebar {
+    position: fixed;
+    width: 220px;
+    height: 100vh;
+    z-index: 200;
+    left: 0;
+    top: 0;
+    background-color: rgb(249, 249, 255);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+    border-right: 1px solid #e5e7eb;
+    transform: translateX(-100%);
+    transition: transform 0.35s ease-in-out;
+  }
+
+  .Sidebar.open {
+    transform: translateX(0);
+  }
+    .listItem svg {
+    display: block;
+    width: 50px !important;
+    height: 30px !important;
+  }
+
+
+}
+@media (max-width: 480px) {
+  .Sidebar {
+    width: 300px;
+    padding-top: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 300;
+    transition: transform 0.35s ease-in-out;
+     transform: translateX(-100%);
+  }
+
+  .Sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebarList {
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .sidebarList .listItem {
+    font-size: 14px;
+    padding: 15px 25px;
+  }
+
+
+}
