@@ -1,5 +1,4 @@
-import React from "react";
-import "../../styles/CampusLandingPage.css";
+import React from "react";import "../../styles/CampusLandingPage.css";
 import SearchBar from "../components/LandingPage/SearchBar";
 import {
   SignIn,

@@ -13,6 +13,8 @@ import CampusLandingPage from "./pages/CampusLandingPage.jsx";
 import { createContext, useEffect, useState } from "react";
 import { SignIn, SignUp } from "@clerk/clerk-react";
 import CampusDashboard from "./pages/CampusDashboard.jsx";
+import { DashboardProvider } from "./components/Context/DashboardContext.jsx";
+import CampusPropertyDetails from "./pages/CampusPropertyDetails.jsx";
 
 // Exporting the useContext
 // eslint-disable-next-line react-refresh/only-export-components
@@ -58,7 +60,9 @@ const App = () => {
       <UserContext.Provider
         value={{ listings, setListings, handleRemoveListing }}
       >
-        <RouterProvider router={router} />
+        <DashboardProvider>
+          <RouterProvider router={router} />
+        </DashboardProvider>
       </UserContext.Provider>
     </div>
   );

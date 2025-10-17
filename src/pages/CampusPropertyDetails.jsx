@@ -1,11 +1,11 @@
 import React from 'react';
-// import '../../styles/CampusPropertyDetails.css';
+import '../../styles/CampusPropertyDetails.css';
 import ImageSlider from '../components/PropertyDetails/ImageSlider';
-// import Modal from '../components/PropertyDetails/modalPopUp';
-// import { useState } from 'react';
+import Modal from '../components/PropertyDetails/modalPopUp';
+import { useState } from 'react';
 
 const CampusPropertyDetails = () => {
-  // const [openModal, setOpenModal] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
   const slides = [
     { url: 'huga.jpg', title: 'First Image' },
     { url: 'rooms3.jpg', title: 'Second Image' },
@@ -64,8 +64,8 @@ const CampusPropertyDetails = () => {
             <p>
               <span id="propertPrice">#2000</span> / month
             </p>
-              <button className="contactPopUp" id="contactbtn">Contact LandLord</button>
-              {/* {openModal && <Modal setOpenModal={setOpenModal} />} */}
+              <button className="contactPopUp" id="contactbtn" onClick={() => setOpenModal(true)}>Contact LandLord</button>
+              {openModal && <Modal setOpenModal={setOpenModal} />}
             <div className="bewareMessage">
               <img src="warning sign.png" alt="" />
               <p>

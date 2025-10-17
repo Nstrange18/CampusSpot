@@ -1,11 +1,33 @@
-import { useState } from "react";
+import React, { useState, useContext, useRef, useEffect } from "react";
 import "../../styles/CampusDashboard.css";
 import EachListings from "../components/DashboardListings/EachListings";
+import Sidebar from "../components/PropertyDetails/sidebar.jsx";
+import { DashboardContext } from "../components/Context/DashboardContext.jsx";
 import CampusSpotListingForm from "./CampusSpotListingForm";
 import { UserContext } from "../App";
-import { useContext } from "react";
 
 const CampusDashboard = () => {
+  const { isSidebarOpen, setIsSidebarOpen } = useContext(DashboardContext);
+  const sidebarRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        setIsSidebarOpen(false);
+      }
+    };
+
+    // Add listener only if sidebar is open
+    if (isSidebarOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    // Cleanup listener
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isSidebarOpen, setIsSidebarOpen]);
+
   const [isOpen, setIsOpen] = useState(false);
   const [editingListing, setEditingListing] = useState(null);
 
@@ -45,17 +67,20 @@ const CampusDashboard = () => {
 
   return (
     <>
-      <div className="container1">
+      <div className={`container1 ${isSidebarOpen ? "shifted" : ""}`}>
         <header>
           <div>
             <img src="logo (1).png" alt="logo" />
             <h1>CampusSpot</h1>
           </div>
 
-          <div className="avatar">
-            <img id="dashboardAvatar" src="IMG-20250427-WA0143.jpg" />
-          </div>
+          {/* <div className="avatar">
+            <img id="dashboardAvatar" src="IMG-20250427-WA0143.jpg" 
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)} />
+          </div> */}
+          
         </header>
+        {/* <Sidebar /> */}
         <div className="welcomeboard">
           <div>
             <h1>My Dashboard</h1>
@@ -102,6 +127,16 @@ const CampusDashboard = () => {
           Add Property
         </button>
       </div>
+      <div className="footer-avatar">
+        <img
+          id="dashboardAvatar"
+          src="IMG-20250427-WA0143.jpg"
+          alt="Avatar"
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+        />
+      </div>
+
+      <Sidebar ref={sidebarRef} />
     </>
   );
 };

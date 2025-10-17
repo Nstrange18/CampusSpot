@@ -1,5 +1,6 @@
 /* Variables */
 :root {
+  --sidebar-width: 250px;
   --background-color: rgb(244, 244, 255);
   --primary-blue: rgb(0, 124, 201);
   --primary-text: black;
@@ -8,7 +9,7 @@
   --green-active: rgba(4, 235, 4, 0.26);
   --yellow-pending: rgba(255, 217, 0, 0.301);
   --red-rented: rgba(255, 2, 44, 0.13);
-  --font-inter: 'Inter', sans-serif;
+  --font-inter: "Inter", sans-serif;
 }
 
 body {
@@ -22,9 +23,9 @@ body {
 /* Header */
 header {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
-  width: 100vw;
+  width: 100%;
   background-color: rgba(244, 244, 255, 0.925);
   padding: 5px 35px;
   box-shadow: 0px 1px 2px var(--border-light);
@@ -49,25 +50,39 @@ header div {
   align-items: center;
 }
 
-header .avatar img {
-  width: 50px;
+.footer-avatar img {
+  width: 65px;
   border-radius: 50%;
   object-fit: cover;
-  height: 50px;
+  height: 65px;
   cursor: pointer;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
 }
 
 /* Main Dashboard Container */
 .container1 {
-  padding: 5px;
-  margin-top: 90px;
+  /* padding: 5px; */
+  /* margin-top: 66px; */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  /* min-width: 100%; */
+  /* height: 100vh; */
   overflow-x: hidden;
+  /* flex-wrap: wrap; */
+  transition: transform 0.4s ease-in-out, max-width 0.4s ease-in-out;
   position: relative;
+}
+
+.container1.shifted {
+  transform: translateX(var(--sidebar-width));
+  max-width: calc(100% - var(--sidebar-width));
 }
 
 /* Welcome Board */
@@ -75,9 +90,11 @@ header .avatar img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   padding: 10px 45px;
   margin-bottom: 20px;
+  margin-top: 90px;
+  box-sizing: border-box;
 }
 
 .welcomeboard p {
@@ -120,7 +137,7 @@ header .avatar img {
 
 /* Listings Table */
 .listings {
-  width: 90vw;
+  width: 90%;
   border: 1px solid var(--border-light);
   border-radius: 10px;
   padding: 20px 30px;
@@ -138,13 +155,15 @@ header .avatar img {
 }
 
 /* For each individual listing row */
-.a, .p, .last {
+.a,
+.p,
+.last {
   list-style: none;
   display: grid;
   align-items: center;
   justify-content: center;
   /* Adjusting the grid columns to match the header */
-  grid-template-columns: 1.5fr 2.0fr 1.2fr 1.5fr 1.5fr 1fr 0.5fr;
+  grid-template-columns: 1.5fr 2fr 1.2fr 1.5fr 1.5fr 1fr 0.5fr;
   padding: 18px 0;
   border-bottom: 1px solid var(--border-light);
 }
@@ -160,7 +179,9 @@ header .avatar img {
 }
 
 /* Status Badges */
-#active, #pending, #rented {
+#active,
+#pending,
+#rented {
   text-align: center;
   padding: 4px 10px; /* Use padding instead of fixed width */
   border-radius: 50px;
@@ -207,7 +228,6 @@ header .avatar img {
   color: var(--secondary-text);
   font-size: 18px;
   margin-top: 20px;
-
 }
 
 /* === RESPONSIVE ADJUSTMENTS === */
@@ -239,6 +259,7 @@ header .avatar img {
     flex-direction: row;
     align-items: center;
     gap: 10px;
+    margin-top: 100px;
   }
 
   .listings {
@@ -259,6 +280,9 @@ header .avatar img {
   .propertys img {
     width: 80px;
     height: 45px;
+  }
+  .container1.shifted {
+    transform: translateX(220px);
   }
 
   span {
@@ -297,8 +321,9 @@ header .avatar img {
   }
 
   .container1 {
-    margin-top: 120px;
+    /* margin-top: 120px; */
     padding: 10px;
+    transition: margin-left 0.35s ease-in-out;
   }
 
   .welcomeboard {
@@ -306,6 +331,7 @@ header .avatar img {
     align-items: center;
     text-align: center;
     gap: 10px;
+    margin-top: 100px;
   }
 
   .addPropertyBtn {
@@ -355,6 +381,9 @@ header .avatar img {
     justify-content: flex-start;
     gap: 8px;
   }
+  .container1.shifted {
+    margin-left: 10px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -396,5 +425,9 @@ header .avatar img {
     display: flex;
     margin-left: auto;
     margin-top: 20px;
+  }
+  .container1.shifted {
+    transform: translateX(0); /* don't push content */
+    max-width: 100%; /* fill screen */
   }
 }
