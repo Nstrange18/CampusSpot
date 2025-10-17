@@ -13,6 +13,9 @@
     "@clerk/clerk-react": "^5.51.0",
     "@prisma/client": "^6.17.1",
     "@prisma/studio-core": "^0.5.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "6.4",
@@ -29,5 +32,21 @@
     "globals": "^16.4.0",
     "prisma": "^6.17.1",
     "vite": "^7.1.7"
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "eslint.config.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nstrange18/CampusSpot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nstrange18/CampusSpot/issues"
+  },
+  "homepage": "https://github.com/Nstrange18/CampusSpot#readme"
 }
