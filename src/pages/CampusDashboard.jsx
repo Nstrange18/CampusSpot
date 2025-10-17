@@ -15,7 +15,7 @@ import { useContext } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
 // import { UserContext } from "../App";
- 
+
 const CampusDashboard = () => {
   const navigate = useNavigate();
   const { isSidebarOpen, setIsSidebarOpen } = useContext(DashboardContext);
