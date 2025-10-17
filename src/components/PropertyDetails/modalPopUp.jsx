@@ -5,25 +5,26 @@ const modalPopUp = ({ setOpenModal }) => {
     <div className='modalBackground'>
         <div className='modalContainer'>
             <div className='title'>
-                <h3>Contact Landlord</h3>
-                <span>Send an inquiry about <span id='propertyAdress'></span></span>
+                <h2>Contact Landlord</h2>
             </div>
             <div className='body'>
-                <input 
-                className='subject'
-                type='text'
-                value={`Inquiries about this building`}
-                readOnly />
-                <textarea 
-                placeholder='Write your message here'
-                rows={6}
-                cols={50}
-               
-                />
+                <div className='contacts'>
+                    <img src="call.png" />
+                    <h3 id='callNumber'>0803607895</h3>
+                </div>
+                <div className='contacts'>
+                    <img src="whatsapp.png" />
+                    <h3 id='whatsappNumber'>+234803607895</h3>
+                </div>
+                <div className='contacts'>
+                    <img src="email.png" />
+                    <h3 id='emailAddress'>Olachigrace196@gmail.com</h3>
+                </div>
+             
             </div>
             <div className='footer'>
                 <button onClick={() => setOpenModal(false)} className='cancelBtn'>Cancel</button>
-                <button className='sendBtn'>Send Mail</button>
+                {/* <button className='sendBtn'>Send Mail</button> */}
             </div>
         </div>
     </div>

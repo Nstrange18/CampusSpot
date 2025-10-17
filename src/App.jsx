@@ -14,6 +14,7 @@ import { createContext, useState } from "react";
 import { SignIn, SignUp } from "@clerk/clerk-react";
 import CampusDashboard from "./pages/CampusDashboard.jsx";
 import { DashboardProvider } from "./components/Context/DashboardContext.jsx";
+import CampusPropertyDetails from "./pages/CampusPropertyDetails.jsx";
 
 // Exporting the useContext
 // eslint-disable-next-line react-refresh/only-export-components
@@ -33,7 +34,7 @@ const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<RootLayout />}>
-        <Route index element={<CampusDashboard />} />
+        <Route index element={<CampusPropertyDetails />} />
 
         <Route
           path="/listingForm"

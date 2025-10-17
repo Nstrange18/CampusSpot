@@ -5,6 +5,7 @@
     flex-direction: column;
     gap: 20px;
     background-color: rgb(255, 255, 255);
+    border-radius: 10px;
 
 }
 .modalBackground {
@@ -21,8 +22,14 @@
 }
 .footer{
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     /* margin-top: 20px; */
+}
+.title{
+    /* text-decoration: underline; */
+    padding: 3px;
+    border-bottom: 2px solid black;
+    width: 200px;
 }
 button{
     padding: 10px 15px;
@@ -60,6 +67,17 @@ textarea{
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+.contacts{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 2px solid rgb(220, 220, 220);
+    padding: 10px;
+}
+.contacts img{
+    width: 25px;
+    height: 25px;
 }
 @media (max-width: 600px) {
   .modalContainer {
