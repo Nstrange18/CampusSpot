@@ -229,7 +229,6 @@ export default function ProfilePage() {
           )}
         </div>
       </main>
-
       {/* ===== Success Popup ===== */}
       {showSuccess && (
         <div className="success-popup">✅ Profile updated successfully!</div>
