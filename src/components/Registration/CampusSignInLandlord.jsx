@@ -70,7 +70,6 @@ const CampusSignInUser = () => {
       alert("Please check the box to agree first.");
       return;
     }
-    // You can set a flag in localStorage or call API here
     localStorage.setItem("agreedToTOS", "true");
     alert("Thank you for agreeing!");
     setIsModalOpen(false);

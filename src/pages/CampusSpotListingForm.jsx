@@ -6,6 +6,8 @@ const CampusSpotListingForm = ({ onAddListing }) => {
   const navigate = useNavigate();
   const [university, setUniversity] = useState("");
   const [propertyAddress, setPropertyAddress] = useState("");
+  // const [isActive, setIsActive] = useState(true);
+  // const [status, setStatus] = useState();
   const [roomType, setRoomType] = useState("");
   const [price, setPrice] = useState("");
   const [formPhotoData, setFormPhotoData] = useState([]);
@@ -14,7 +16,9 @@ const CampusSpotListingForm = ({ onAddListing }) => {
 
   const handleSubmit = (e) => {
     const isRawFile = formPhotoData instanceof File;
+
     e.preventDefault();
+
     const listingData = {
       university,
       formPhotoData: isRawFile ? {
@@ -27,6 +31,7 @@ const CampusSpotListingForm = ({ onAddListing }) => {
       amenities,
       description
     };
+    
     onAddListing(listingData);
     navigate("/dashboard");
   };
@@ -101,9 +106,9 @@ const CampusSpotListingForm = ({ onAddListing }) => {
               >
                 <option value="">Select Room Type</option>
                 <option value="Stanford University">Studio </option>
-                <option value="Cambridge">1 bedroom</option>
-                <option value="Cambridge">2 bedroom</option>
-                <option value="Cambridge">Shared Room</option>
+                <option value="1 bedroom">1 bedroom</option>
+                <option value="2 bedroom">2 bedroom</option>
+                <option value="Shared Room">Shared Room</option>
               </select>
             </div>
 

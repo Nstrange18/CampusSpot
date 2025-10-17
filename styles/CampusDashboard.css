@@ -1,0 +1,390 @@
+/* Variables */
+:root {
+  --background-color: rgb(244, 244, 255);
+  --primary-blue: rgb(0, 124, 201);
+  --primary-text: black;
+  --secondary-text: rgb(88, 88, 88);
+  --border-light: rgb(200, 200, 253);
+  --green-active: rgba(4, 235, 4, 0.26);
+  --yellow-pending: rgba(255, 217, 0, 0.301);
+  --red-rented: rgba(255, 2, 44, 0.13);
+  --font-poppins: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
+  font-family: var(--font-poppins);
+  font-size: 15px;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.propertys img {
+  width: 8rem;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  background-color: rgba(244, 244, 255, 0.925);
+  padding: 5px 35px;
+  box-shadow: 0px 1px 2px var(--border-light);
+  font-size: 15px;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+header img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+header h1 {
+  font-size: 25px;
+}
+
+header div {
+  display: flex;
+  align-items: center;
+}
+
+header .avatar img {
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  height: 50px;
+  cursor: pointer;
+}
+
+.container1 {
+  padding: 5px;
+  margin-top: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.welcomeboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  padding: 10px 45px;
+  margin-bottom: 20px;
+}
+
+.welcomeboard p {
+  color: var(--secondary-text);
+  margin-top: 10px;
+}
+
+.addPropertyBtn {
+  background-color: var(--primary-blue);
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border: none;
+  padding: 0 25px;
+  height: 35px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.addPropertyBtn2 {
+  background-color: var(--primary-blue);
+  color: white;
+  display: none;
+  align-items: center;
+  gap: 7px;
+  border: none;
+  padding: 0 25px;
+  height: 35px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.listings {
+  width: 90vw;
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 20px 30px;
+}
+
+.listings .headings {
+  padding: 1rem 1.3rem;
+  border-bottom: 1px solid var(--border-light);
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+ul {
+  list-style: none;
+  padding: 18px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.propertys {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#propertyAddresses {
+  width: 30%;
+}
+
+span {
+  color: var(--background-color);
+}
+
+.last {
+  border-bottom: none;
+}
+
+#active {
+  color: green;
+  background-color: var(--green-active);
+  width: 35%;
+  padding: 4px 10px;
+  border-radius: 50px;
+}
+
+#pending {
+  color: goldenrod;
+  background-color: var(--yellow-pending);
+  padding: 0px 6px;
+  border-radius: 50px;
+}
+
+#rented {
+  color: rgb(180, 0, 30);
+  background-color: var(--red-rented);
+  padding: 0px 6px;
+  border-radius: 50px;
+}
+
+.plus {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.hidden {
+  display: none;
+}
+
+.dbtn {
+  display: flex;
+  gap: 26px;
+}
+
+.dbtn button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.dbtn button:hover {
+  transform: scale(1.1);
+}
+
+.dbtn img {
+  width: 20px;
+}
+
+/* === RESPONSIVE ADJUSTMENTS === */
+
+@media (max-width: 992px) {
+  header {
+    padding: 10px 20px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  header div:first-child img {
+    width: 50px;
+    height: 50px;
+  }
+
+  header h1 {
+    font-size: 22px;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  .welcomeboard {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .listings {
+    padding: 15px;
+    overflow-x: auto;
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 14px;
+    padding: 10px;
+    min-width: 600px;
+  }
+
+  .propertys img {
+    width: 80px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 15px;
+  }
+
+  .plus {
+    font-size: 25px;
+    font-weight: 500;
+    display: flex;
+  }
+
+  header div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  .avatar img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .container1 {
+    margin-top: 120px;
+    padding: 10px;
+  }
+
+  .welcomeboard {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .addPropertyBtn {
+    font-size: 12px;
+    padding: 5px 20px;
+    height: 30px;
+    display: none;
+  }
+
+  .addPropertyBtn2 {
+    font-size: 12px;
+    padding: 5px 20px;
+    height: 30px;
+    display: flex;
+    margin-left: auto;
+    margin-top: 20px;
+  }
+
+  .listings {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  ul {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+    font-size: 13px;
+    min-width: 600px;
+  }
+
+  .propertys {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .propertys img {
+    width: 70px;
+    height: 45px;
+    border-radius: 5px;
+  }
+
+  .dbtn {
+    justify-content: flex-start;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 18px;
+  }
+
+  .plus {
+    font-size: 25px;
+    font-weight: 500;
+    display: flex;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  ul {
+    font-size: 12px;
+    gap: 8px;
+  }
+
+  .propertys img {
+    width: 60px;
+    height: 40px;
+  }
+
+  .addPropertyBtn {
+    font-size: 12px;
+    padding: 5px 20px;
+    height: 30px;
+    display: none;
+  }
+
+  .addPropertyBtn2 {
+    font-size: 12px;
+    padding: 5px 20px;
+    height: 30px;
+    display: flex;
+    margin-left: auto;
+    margin-top: 20px;
+  }
+}
